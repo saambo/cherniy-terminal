@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101310">
+<title>РЕЕСТР | Private Terminal</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #101310;
+  color: #d3d8d1;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+}
+main {
+  max-width: 480px;
+  min-height: 100dvh;
+  margin: auto;
+  padding: 30px 20px 100px;
+}
+header, .line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+header {
+  color: #899488;
+  font-size: 11px;
+}
+hr {
+  border: 0;
+  border-top: 1px solid #383f38;
+  margin: 20px 0;
+}
+h1 {
+  font-size: 25px;
+  font-weight: normal;
+  letter-spacing: 3px;
+  margin: 30px 0 7px;
+}
+h2 {
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+.muted { color: #879287; }
+.small { font-size: 10px; }
+.balance {
+  font-size: clamp(28px, 8vw, 37px);
+  letter-spacing: -1px;
+  margin: 13px 0;
+  overflow-wrap: anywhere;
+}
+.section { margin-top: 36px; }
+.entry {
+  padding: 14px 0;
+  border-bottom: 1px solid #292f29;
+}
+.entry span:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #151915;
+  border-top: 1px solid #414941;
+  display: flex;
+  justify-content: space-around;
+  padding: 17px 4px calc(17px + env(safe-area-inset-bottom));
+}
+button {
+  background: transparent;
+  border: 0;
+  color: #929d91;
+  font: 11px "Courier New", monospace;
+  cursor: pointer;
+}
+button.active { color: #f0f1e8; }
+.page { display: none; }
+.page.active { display: block; }
+</style>
+</head>
+<body>
+<main>
+<header>
+  <span>РЕЕСТР / 内部系统</span>
+  <span>№ 004-81</span>
+</header>
+
+<hr>
+
+<div class="line small muted">
+  <span>PRIVATE FINANCIAL REGISTER</span>
+  <span>LOCAL / DEMO</span>
+</div>
+
+<section id="overview" class="page active">
+  <h1>СВОДКА</h1>
+  <div class="muted">资产总览 / ACCOUNT SUMMARY</div>
+
+  <div class="section">
+    <div class="muted">TOTAL ASSETS / USD</div>
+    <div class="balance">8,472,650.00</div>
+    <div class="small muted">SIMULATED PORTFOLIO</div>
+  </div>
+
+  <div class="section">
+    <div class="line muted">
+      <span>АКТИВЫ / 资产</span>
+      <span>БАЛАНС / 余额</span>
+    </div>
+    <hr>
+
+    <div class="line entry"><span>USDT / TRC20</span><span>3,250,000.00</span></div>
+    <div class="line entry"><span>BTC</span><span>42.806200</span></div>
+    <div class="line entry"><span>ETH</span><span>214.500000</span></div>
+    <div class="line entry"><span>RUB</span><span>18,450,000.00</span></div>
+    <div class="line entry"><span>CNY</span><span>2,870,000.00</span></div>
+    <div class="line entry"><span>AUD</span><span>940,000.00</span></div>
+  </div>
+
+  <div class="section small muted">
+    REGISTER: 004-81-A<br>
+    VALUATION: FICTIONAL / OFFLINE<br>
+    ACCESS CLASS: INTERNAL
+  </div>
+</section>
+
+<section id="journal" class="page">
+  <h1>ЖУРНАЛ</h1>
+  <div class="muted">交易流水 / OPERATIONS</div>
+
+  <div class="section">
+    <div class="line entry">
+      <span>OP-0184<br><small class="muted">17.10.26</small></span>
+      <span>+185,000 USDT</span>
+    </div>
+    <div class="line entry">
+      <span>OP-0183<br><small class="muted">16.10.26</small></span>
+      <span>-2.5000 BTC</span>
+    </div>
+    <div class="line entry">
+      <span>OP-0182<br><small class="muted">14.10.26</small></span>
+      <span>+970,000 CNY</span>
+    </div>
+  </div>
+  <p class="small muted">FICTIONAL ENTRIES / NO REAL TRANSFERS</p>
+</section>
+
+<section id="access" class="page">
+  <h1>ДОСТУП</h1>
+  <div class="muted">访问控制 / ACCESS REGISTER</div>
+
+  <div class="section">
+    <div class="line entry"><span>SESSION</span><span>001</span></div>
+    <div class="line entry"><span>TERMINAL</span><span>004-81</span></div>
+    <div class="line entry"><span>MODE</span><span>SIMULATION</span></div>
+    <div class="line entry"><span>STORAGE</span><span>LOCAL</span></div>
+  </div>
+</section>
+</main>
+
+<nav>
+  <button class="active" onclick="show('overview',this)">01 / СЧЕТА</button>
+  <button onclick="show('journal',this)">02 / ЖУРНАЛ</button>
+  <button onclick="show('access',this)">03 / ДОСТУП</button>
+</nav>
+
+<script>
+function show(id, button) {
+  document.querySelectorAll('.page').forEach(
+    page => page.classList.remove('active')
+  );
+  document.querySelectorAll('nav button').forEach(
+    item => item.classList.remove('active')
+  );
+  document.getElementById(id).classList.add('active');
+  button.classList.add('active');
+}
+</script>
+</body>
+</html>
