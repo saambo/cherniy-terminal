@@ -6,14 +6,14 @@
 <meta name="theme-color" content="#101310">
 <title>РЕЕСТР | Asset Register</title>
 <style>
-:root{color-scheme:dark;--bg:#101310;--fg:#d9ddd5;--dim:#8b968b;--rule:#303930;--accent:#acb7a6}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}main{max-width:510px;min-height:100dvh;margin:auto;padding:22px 20px 94px}.top,.pair{display:flex;justify-content:space-between;gap:12px;align-items:baseline}.top{font-size:11px;color:var(--dim)}.subtle{font-size:10px;color:var(--dim)}.quiet{color:var(--dim)}hr{border:0;border-top:1px solid var(--rule);margin:14px 0}h1{font-size:24px;font-weight:400;letter-spacing:2px;margin:20px 0 1px}h2{font-size:12px;letter-spacing:1px;font-weight:400;margin:21px 0 9px;color:var(--accent)}.big{font-size:clamp(29px,8vw,41px);line-height:1.22;letter-spacing:-1px;margin:7px 0 0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.secondary{font-size:clamp(20px,5.7vw,27px);margin:3px 0;font-variant-numeric:tabular-nums}.section{margin-top:23px}.entry{border-bottom:1px solid #262e26;padding:10px 0}.entry .pair{align-items:center}.entry span:last-child{text-align:right;overflow-wrap:anywhere}.page{display:none}.page.active{display:block}nav{position:fixed;bottom:0;left:0;right:0;background:#141914;border-top:1px solid #394439;display:flex;justify-content:center;padding:12px 10px calc(12px + env(safe-area-inset-bottom))}nav .navinner{max-width:510px;width:100%;display:flex;justify-content:space-between;gap:4px}button{background:none;border:0;color:var(--dim);font:11px ui-monospace,Menlo,monospace;cursor:pointer;padding:6px 2px}button.active{color:var(--fg)}button:focus-visible,input:focus-visible{outline:1px solid #c1c8bb;outline-offset:3px}.action{border:1px solid #5b695a;padding:10px 14px;min-height:39px;color:var(--fg);margin-top:13px}.field{display:block;margin:13px 0}.field label{display:block;color:var(--dim);font-size:11px;margin-bottom:5px}.field input{display:block;width:100%;background:#171d17;border:1px solid #444f44;border-radius:0;padding:11px;color:var(--fg);font:15px ui-monospace,Menlo,monospace}.note{font-size:10px;color:var(--dim);margin-top:12px}.record{padding:12px 0;border-bottom:1px solid var(--rule)}.record .pair{align-items:center}.record .id{font-size:10px;color:var(--dim)}.access-link{text-align:left;border-bottom:1px dotted #667367;color:var(--accent);padding:3px 0}.status{font-size:11px;color:#b9c7b4;margin-top:8px;min-height:1em}#settings{padding-bottom:10px}@media(min-width:800px){main{padding-top:35px}}
+:root{color-scheme:dark;--bg:#101310;--fg:#d9ddd5;--dim:#8b968b;--rule:#303930;--accent:#acb7a6}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}main{max-width:510px;min-height:100dvh;margin:auto;padding:22px 20px 94px}.top,.pair{display:flex;justify-content:space-between;gap:12px;align-items:baseline}.top{font-size:11px;color:var(--dim)}.subtle{font-size:10px;color:var(--dim)}.quiet{color:var(--dim)}hr{border:0;border-top:1px solid var(--rule);margin:14px 0}h1{font-size:24px;font-weight:400;letter-spacing:2px;margin:20px 0 1px}h2{font-size:12px;letter-spacing:1px;font-weight:400;margin:21px 0 9px;color:var(--accent)}.big{font-size:clamp(29px,8vw,41px);line-height:1.22;letter-spacing:-1px;margin:7px 0 0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.secondary{font-size:clamp(20px,5.7vw,27px);margin:3px 0;font-variant-numeric:tabular-nums}.section{margin-top:23px}.entry{border-bottom:1px solid #262e26;padding:10px 0}.entry .pair{align-items:center}.entry span:last-child{text-align:right;overflow-wrap:anywhere}.page{display:none}.page.active{display:block}nav{position:fixed;bottom:0;left:0;right:0;background:#141914;border-top:1px solid #394439;display:flex;justify-content:center;padding:12px 10px calc(12px + env(safe-area-inset-bottom))}nav .navinner{max-width:510px;width:100%;display:flex;justify-content:space-between;gap:4px}button{background:none;border:0;color:var(--dim);font:11px ui-monospace,Menlo,monospace;cursor:pointer;padding:6px 2px}button.active{color:var(--fg)}button:focus-visible,input:focus-visible{outline:1px solid #c1c8bb;outline-offset:3px}.action{border:1px solid #5b695a;padding:10px 14px;min-height:39px;color:var(--fg);margin-top:13px}.field{display:block;margin:13px 0}.field label{display:block;color:var(--dim);font-size:11px;margin-bottom:5px}.field input{display:block;width:100%;background:#171d17;border:1px solid #444f44;border-radius:0;padding:11px;color:var(--fg);font:15px ui-monospace,Menlo,monospace}.note{font-size:10px;color:var(--dim);margin-top:12px}.record{padding:12px 0;border-bottom:1px solid var(--rule)}.record .pair{align-items:center}.record .id{font-size:10px;color:var(--dim)}.secret-trigger{color:var(--fg);font:inherit;padding:0;text-align:right;letter-spacing:0;border:0;background:transparent}.secret-trigger:focus-visible{outline:1px solid var(--accent)}.status{font-size:11px;color:#b9c7b4;margin-top:8px;min-height:1em}#settings{padding-bottom:10px}@media(min-width:800px){main{padding-top:35px}}
 </style>
 </head>
 <body>
 <main>
 <header class="top"><span>РЕЕСТР / 内部账目</span><span>№ 004-81</span></header>
 <hr>
-<div class="pair subtle"><span>PRIVATE ASSET REGISTER</span><span>FICTIONAL / TEST DATA</span></div>
+<div class="pair subtle"><span>PRIVATE ASSET REGISTER</span><span>МАКЕТ / FICTIONAL</span></div>
 <section class="page active" id="overview">
 <h1>СВОДКА</h1><div class="quiet">资产总览 / ACCOUNT SUMMARY</div>
 <div class="section"><div class="quiet">TOTAL ASSETS / ETH</div><div id="totalETH" class="big">1,842.6000</div><div class="quiet" style="margin-top:9px">ОЦЕНКА / AUD EQUIVALENT</div><div id="totalAUD" class="secondary">AUD $8,472,650.00</div></div>
@@ -21,14 +21,12 @@
 <div class="section subtle">РЕЕСТР № 004-81-A<br>对账记录 / INTERNAL REGISTER<br>ACCESS CLASS / 07</div>
 </section>
 <section class="page" id="journal">
-<h1>ЖУРНАЛ</h1><div class="quiet">交易流水 / TRANSACTION REGISTER</div><h2>ЗАПИСИ / 记录</h2><div id="records"></div><p class="note">REGISTER ENTRIES ARE SIMULATED.</p>
+<h1>ЖУРНАЛ</h1><div class="quiet">交易流水 / TRANSACTION REGISTER</div><h2>ЗАПИСИ / 记录</h2><div id="records"></div><p class="note">УЧЕБНЫЙ РЕЕСТР / FICTIONAL ENTRIES.</p>
 </section>
 <section class="page" id="access">
 <h1>ДОСТУП</h1><div class="quiet">访问控制 / ACCESS REGISTER</div>
-<div class="section"><div class="entry pair"><span>СЕССИЯ / 会话</span><span id="session">748291063805</span></div><div class="entry pair"><span>РЕЕСТР</span><span>004-81</span></div><div class="entry pair"><span>ДОПУСК / 权限</span><span>07 / INTERNAL</span></div><div class="entry pair"><span>КОНТУР</span><span>СЕВЕР / 北区</span></div></div>
-<h2>СЛУЖЕБНОЕ / 系统管理</h2>
-<button class="access-link" type="button" onclick="openEditor()">校准 регистра / PARAMETER CONTROL [07]</button>
-<p class="note">Local simulation controls. No connection to real financial accounts or payment networks.</p>
+<div class="section"><div class="entry pair"><span>СЕССИЯ / 会话</span><button id="session" class="secret-trigger" type="button" aria-label="Session reference" title="Session reference">748291063805</button></div><div class="entry pair"><span>РЕЕСТР</span><span>004-81</span></div><div class="entry pair"><span>ДОПУСК / 权限</span><span>07 / INTERNAL</span></div><div class="entry pair"><span>КОНТУР</span><span>СЕВЕР / 北区</span></div></div>
+<div class="section subtle">СИСТЕМА / 系统状态: 004-81<br>АРХИВ / 档案: 19-07-B<br>КОНТРОЛЬ / 核验: 0174</div>
 </section>
 <section class="page" id="settings">
 <h1>ПАРАМЕТРЫ</h1><div class="quiet">参数设置 / SIMULATION EDITOR</div>
@@ -37,11 +35,17 @@
 <div class="field"><label for="aud">AUD EQUIVALENT</label><input id="aud" type="text" inputmode="decimal" required></div>
 <h2>АКТИВЫ / ASSET BALANCES</h2><div id="assetFields"></div>
 <h2>ЖУРНАЛ / TRANSACTIONS</h2><div id="recordFields"></div>
+<h2>НОВАЯ ЗАПИСЬ / 新增记录</h2>
+<div class="field"><label for="newDate">DATE / ДАТА (DD.MM.YY)</label><input id="newDate" placeholder="18.10.26" maxlength="8" inputmode="text"></div>
+<div class="field"><label for="newDesc">DESCRIPTION / 说明</label><input id="newDesc" placeholder="ВНУТР. ПЕРЕВОД / 内部转账" maxlength="90"></div>
+<div class="field"><label for="newAmount">AMOUNT / СУММА</label><input id="newAmount" placeholder="+25,000 USDT" maxlength="45"></div>
+<button type="button" class="action" id="addRecord">+ ДОБАВИТЬ / 添加 ENTRY</button>
+<p id="addMessage" class="status" role="status"></p>
 <button class="action" type="submit">СОХРАНИТЬ / 保存 CHANGES</button>
 <div id="saved" class="status" role="status"></div>
 </form>
 <button type="button" class="action" onclick="switchPage('access')">НАЗАД / RETURN</button>
-<p class="note">Stored only in this browser on this device. These settings are not secure authentication, and changes do not represent real funds.</p>
+<p class="note">Local-only editing. This is a fictional register, not actual balances or transfers.</p>
 </section>
 </main>
 <nav><div class="navinner"><button class="active" data-nav="overview" onclick="switchPage('overview')">01 / СЧЕТА</button><button data-nav="journal" onclick="switchPage('journal')">02 / ЖУРНАЛ</button><button data-nav="access" onclick="switchPage('access')">03 / ДОСТУП</button></div></nav>
@@ -60,6 +64,23 @@ function field(id,label,value){const div=text('div','field','');const l=text('la
 function createEditor(){ $('eth').value=data.eth;$('aud').value=data.aud;$('assetFields').replaceChildren();Object.entries(data.assets).forEach(([k,v],i)=>$('assetFields').append(field('asset'+i,k,v)));$('recordFields').replaceChildren();data.records.forEach((r,i)=>{$('recordFields').append(field('desc'+i,r.id+' / DESCRIPTION',r.description));$('recordFields').append(field('amount'+i,r.id+' / AMOUNT',r.amount))})}
 function switchPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('[data-nav]').forEach(n=>n.classList.toggle('active',n.dataset.nav===id));window.scrollTo(0,0)}
 function openEditor(){createEditor();$('saved').textContent='';switchPage('settings')}
+let taps=0, lastTap=0;
+$('session').addEventListener('click',()=>{
+ const now=Date.now();if(now-lastTap>4000)taps=0;lastTap=now;
+ taps++;if(taps>=5){taps=0;openEditor()}
+});
+$('addRecord').addEventListener('click',()=>{
+ const date=$('newDate').value.trim(),description=$('newDesc').value.trim(),amount=$('newAmount').value.trim();
+ if(!/^\d{2}\.\d{2}\.\d{2}$/.test(date)||!description||!amount){$('addMessage').textContent='Enter date (DD.MM.YY), description and amount.';return}
+ const id='OP-'+String(Math.max(0,...data.records.map(r=>Number(String(r.id).replace('OP-',''))||0))+1).padStart(4,'0');
+ // Read current editor values before adding a new record.
+ data.eth=$('eth').value.trim();data.aud=$('aud').value.trim();
+ Object.keys(data.assets).forEach((k,i)=>data.assets[k]=$('asset'+i).value.trim());
+ data.records.forEach((r,i)=>{r.description=$('desc'+i).value.trim();r.amount=$('amount'+i).value.trim()});
+ data.records.unshift({id,date,description,amount});
+ try{localStorage.setItem(KEY,JSON.stringify(data));render();createEditor();$('newDate').value='';$('newDesc').value='';$('newAmount').value='';$('addMessage').textContent='ЗАПИСЬ ДОБАВЛЕНА / 已添加 / ADDED';}
+ catch(e){$('addMessage').textContent='Could not save locally.'}
+});
 $('editor').addEventListener('submit',event=>{event.preventDefault();const eth=$('eth').value.trim(),aud=$('aud').value.trim();if(!Number.isFinite(Number(eth.replace(/,/g,'')))||!Number.isFinite(Number(aud.replace(/,/g,'')))){$('saved').textContent='Invalid ETH or AUD amount.';return}data.eth=eth;data.aud=aud;Object.keys(data.assets).forEach((k,i)=>data.assets[k]=$('asset'+i).value.trim());data.records.forEach((r,i)=>{r.description=$('desc'+i).value.trim();r.amount=$('amount'+i).value.trim()});try{localStorage.setItem(KEY,JSON.stringify(data));$('saved').textContent='СОХРАНЕНО / 已保存 / SAVED';render()}catch(e){$('saved').textContent='Could not save on this device. Check browser storage settings.'}});
 render();
 </script>
