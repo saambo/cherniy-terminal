@@ -1,189 +1,67 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#101310">
-<title>РЕЕСТР | Private Terminal</title>
+<title>РЕЕСТР | Asset Register</title>
 <style>
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: #101310;
-  color: #d3d8d1;
-  font-family: "Courier New", monospace;
-  font-size: 13px;
-}
-main {
-  max-width: 480px;
-  min-height: 100dvh;
-  margin: auto;
-  padding: 30px 20px 100px;
-}
-header, .line {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-header {
-  color: #899488;
-  font-size: 11px;
-}
-hr {
-  border: 0;
-  border-top: 1px solid #383f38;
-  margin: 20px 0;
-}
-h1 {
-  font-size: 25px;
-  font-weight: normal;
-  letter-spacing: 3px;
-  margin: 30px 0 7px;
-}
-h2 {
-  font-size: 13px;
-  font-weight: normal;
-  letter-spacing: 1px;
-}
-.muted { color: #879287; }
-.small { font-size: 10px; }
-.balance {
-  font-size: clamp(28px, 8vw, 37px);
-  letter-spacing: -1px;
-  margin: 13px 0;
-  overflow-wrap: anywhere;
-}
-.section { margin-top: 36px; }
-.entry {
-  padding: 14px 0;
-  border-bottom: 1px solid #292f29;
-}
-.entry span:last-child {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #151915;
-  border-top: 1px solid #414941;
-  display: flex;
-  justify-content: space-around;
-  padding: 17px 4px calc(17px + env(safe-area-inset-bottom));
-}
-button {
-  background: transparent;
-  border: 0;
-  color: #929d91;
-  font: 11px "Courier New", monospace;
-  cursor: pointer;
-}
-button.active { color: #f0f1e8; }
-.page { display: none; }
-.page.active { display: block; }
+:root{color-scheme:dark;--bg:#101310;--fg:#d9ddd5;--dim:#8b968b;--rule:#303930;--accent:#acb7a6}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}main{max-width:510px;min-height:100dvh;margin:auto;padding:22px 20px 94px}.top,.pair{display:flex;justify-content:space-between;gap:12px;align-items:baseline}.top{font-size:11px;color:var(--dim)}.subtle{font-size:10px;color:var(--dim)}.quiet{color:var(--dim)}hr{border:0;border-top:1px solid var(--rule);margin:14px 0}h1{font-size:24px;font-weight:400;letter-spacing:2px;margin:20px 0 1px}h2{font-size:12px;letter-spacing:1px;font-weight:400;margin:21px 0 9px;color:var(--accent)}.big{font-size:clamp(29px,8vw,41px);line-height:1.22;letter-spacing:-1px;margin:7px 0 0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.secondary{font-size:clamp(20px,5.7vw,27px);margin:3px 0;font-variant-numeric:tabular-nums}.section{margin-top:23px}.entry{border-bottom:1px solid #262e26;padding:10px 0}.entry .pair{align-items:center}.entry span:last-child{text-align:right;overflow-wrap:anywhere}.page{display:none}.page.active{display:block}nav{position:fixed;bottom:0;left:0;right:0;background:#141914;border-top:1px solid #394439;display:flex;justify-content:center;padding:12px 10px calc(12px + env(safe-area-inset-bottom))}nav .navinner{max-width:510px;width:100%;display:flex;justify-content:space-between;gap:4px}button{background:none;border:0;color:var(--dim);font:11px ui-monospace,Menlo,monospace;cursor:pointer;padding:6px 2px}button.active{color:var(--fg)}button:focus-visible,input:focus-visible{outline:1px solid #c1c8bb;outline-offset:3px}.action{border:1px solid #5b695a;padding:10px 14px;min-height:39px;color:var(--fg);margin-top:13px}.field{display:block;margin:13px 0}.field label{display:block;color:var(--dim);font-size:11px;margin-bottom:5px}.field input{display:block;width:100%;background:#171d17;border:1px solid #444f44;border-radius:0;padding:11px;color:var(--fg);font:15px ui-monospace,Menlo,monospace}.note{font-size:10px;color:var(--dim);margin-top:12px}.record{padding:12px 0;border-bottom:1px solid var(--rule)}.record .pair{align-items:center}.record .id{font-size:10px;color:var(--dim)}.access-link{text-align:left;border-bottom:1px dotted #667367;color:var(--accent);padding:3px 0}.status{font-size:11px;color:#b9c7b4;margin-top:8px;min-height:1em}#settings{padding-bottom:10px}@media(min-width:800px){main{padding-top:35px}}
 </style>
 </head>
 <body>
 <main>
-<header>
-  <span>РЕЕСТР / 内部系统</span>
-  <span>№ 004-81</span>
-</header>
-
+<header class="top"><span>РЕЕСТР / 内部账目</span><span>№ 004-81</span></header>
 <hr>
-
-<div class="line small muted">
-  <span>PRIVATE FINANCIAL REGISTER</span>
-  <span>LOCAL / DEMO</span>
-</div>
-
-<section id="overview" class="page active">
-  <h1>СВОДКА</h1>
-  <div class="muted">资产总览 / ACCOUNT SUMMARY</div>
-
-  <div class="section">
-    <div class="muted">TOTAL ASSETS / USD</div>
-    <div class="balance">8,472,650.00</div>
-    <div class="small muted">SIMULATED PORTFOLIO</div>
-  </div>
-
-  <div class="section">
-    <div class="line muted">
-      <span>АКТИВЫ / 资产</span>
-      <span>БАЛАНС / 余额</span>
-    </div>
-    <hr>
-
-    <div class="line entry"><span>USDT / TRC20</span><span>3,250,000.00</span></div>
-    <div class="line entry"><span>BTC</span><span>42.806200</span></div>
-    <div class="line entry"><span>ETH</span><span>214.500000</span></div>
-    <div class="line entry"><span>RUB</span><span>18,450,000.00</span></div>
-    <div class="line entry"><span>CNY</span><span>2,870,000.00</span></div>
-    <div class="line entry"><span>AUD</span><span>940,000.00</span></div>
-  </div>
-
-  <div class="section small muted">
-    REGISTER: 004-81-A<br>
-    VALUATION: FICTIONAL / OFFLINE<br>
-    ACCESS CLASS: INTERNAL
-  </div>
+<div class="pair subtle"><span>PRIVATE ASSET REGISTER</span><span>FICTIONAL / TEST DATA</span></div>
+<section class="page active" id="overview">
+<h1>СВОДКА</h1><div class="quiet">资产总览 / ACCOUNT SUMMARY</div>
+<div class="section"><div class="quiet">TOTAL ASSETS / ETH</div><div id="totalETH" class="big">1,842.6000</div><div class="quiet" style="margin-top:9px">ОЦЕНКА / AUD EQUIVALENT</div><div id="totalAUD" class="secondary">AUD $8,472,650.00</div></div>
+<div class="section"><div class="pair subtle"><span>АКТИВЫ / 资产</span><span>БАЛАНС / 余额</span></div><hr style="margin:8px 0 0"><div id="assets"></div></div>
+<div class="section subtle">РЕЕСТР № 004-81-A<br>对账记录 / INTERNAL REGISTER<br>ACCESS CLASS / 07</div>
 </section>
-
-<section id="journal" class="page">
-  <h1>ЖУРНАЛ</h1>
-  <div class="muted">交易流水 / OPERATIONS</div>
-
-  <div class="section">
-    <div class="line entry">
-      <span>OP-0184<br><small class="muted">17.10.26</small></span>
-      <span>+185,000 USDT</span>
-    </div>
-    <div class="line entry">
-      <span>OP-0183<br><small class="muted">16.10.26</small></span>
-      <span>-2.5000 BTC</span>
-    </div>
-    <div class="line entry">
-      <span>OP-0182<br><small class="muted">14.10.26</small></span>
-      <span>+970,000 CNY</span>
-    </div>
-  </div>
-  <p class="small muted">FICTIONAL ENTRIES / NO REAL TRANSFERS</p>
+<section class="page" id="journal">
+<h1>ЖУРНАЛ</h1><div class="quiet">交易流水 / TRANSACTION REGISTER</div><h2>ЗАПИСИ / 记录</h2><div id="records"></div><p class="note">REGISTER ENTRIES ARE SIMULATED.</p>
 </section>
-
-<section id="access" class="page">
-  <h1>ДОСТУП</h1>
-  <div class="muted">访问控制 / ACCESS REGISTER</div>
-
-  <div class="section">
-    <div class="line entry"><span>SESSION</span><span>001</span></div>
-    <div class="line entry"><span>TERMINAL</span><span>004-81</span></div>
-    <div class="line entry"><span>MODE</span><span>SIMULATION</span></div>
-    <div class="line entry"><span>STORAGE</span><span>LOCAL</span></div>
-  </div>
+<section class="page" id="access">
+<h1>ДОСТУП</h1><div class="quiet">访问控制 / ACCESS REGISTER</div>
+<div class="section"><div class="entry pair"><span>СЕССИЯ / 会话</span><span id="session">748291063805</span></div><div class="entry pair"><span>РЕЕСТР</span><span>004-81</span></div><div class="entry pair"><span>ДОПУСК / 权限</span><span>07 / INTERNAL</span></div><div class="entry pair"><span>КОНТУР</span><span>СЕВЕР / 北区</span></div></div>
+<h2>СЛУЖЕБНОЕ / 系统管理</h2>
+<button class="access-link" type="button" onclick="openEditor()">校准 регистра / PARAMETER CONTROL [07]</button>
+<p class="note">Local simulation controls. No connection to real financial accounts or payment networks.</p>
+</section>
+<section class="page" id="settings">
+<h1>ПАРАМЕТРЫ</h1><div class="quiet">参数设置 / SIMULATION EDITOR</div>
+<form id="editor">
+<div class="field"><label for="eth">TOTAL ASSETS / ETH</label><input id="eth" type="text" inputmode="decimal" required></div>
+<div class="field"><label for="aud">AUD EQUIVALENT</label><input id="aud" type="text" inputmode="decimal" required></div>
+<h2>АКТИВЫ / ASSET BALANCES</h2><div id="assetFields"></div>
+<h2>ЖУРНАЛ / TRANSACTIONS</h2><div id="recordFields"></div>
+<button class="action" type="submit">СОХРАНИТЬ / 保存 CHANGES</button>
+<div id="saved" class="status" role="status"></div>
+</form>
+<button type="button" class="action" onclick="switchPage('access')">НАЗАД / RETURN</button>
+<p class="note">Stored only in this browser on this device. These settings are not secure authentication, and changes do not represent real funds.</p>
 </section>
 </main>
-
-<nav>
-  <button class="active" onclick="show('overview',this)">01 / СЧЕТА</button>
-  <button onclick="show('journal',this)">02 / ЖУРНАЛ</button>
-  <button onclick="show('access',this)">03 / ДОСТУП</button>
-</nav>
-
+<nav><div class="navinner"><button class="active" data-nav="overview" onclick="switchPage('overview')">01 / СЧЕТА</button><button data-nav="journal" onclick="switchPage('journal')">02 / ЖУРНАЛ</button><button data-nav="access" onclick="switchPage('access')">03 / ДОСТУП</button></div></nav>
 <script>
-function show(id, button) {
-  document.querySelectorAll('.page').forEach(
-    page => page.classList.remove('active')
-  );
-  document.querySelectorAll('nav button').forEach(
-    item => item.classList.remove('active')
-  );
-  document.getElementById(id).classList.add('active');
-  button.classList.add('active');
-}
+const KEY='cherniy-register-v2';
+const defaults={eth:'1842.6000',aud:'8472650.00',assets:{'USDT / TRC20':'3250000.00','BTC':'42.806200','ETH':'214.500000','RUB':'18450000.00','CNY':'2870000.00','AUD':'940000.00'},records:[{id:'OP-0184',date:'17.10.26',description:'ВНУТР. ПЕРЕВОД / 内部转账',amount:'+185,000 USDT'},{id:'OP-0183',date:'16.10.26',description:'РЕЗЕРВ / 储备',amount:'-2.5000 BTC'},{id:'OP-0182',date:'14.10.26',description:'ЗАЧИСЛЕНИЕ / 入账',amount:'+970,000 CNY'},{id:'OP-0181',date:'12.10.26',description:'РАСПРЕДЕЛЕНИЕ / 分配',amount:'-240,000 AUD'}]};
+function clone(v){return JSON.parse(JSON.stringify(v))}
+let data=clone(defaults);
+try{const prior=JSON.parse(localStorage.getItem(KEY));if(prior&&typeof prior==='object'&&prior.assets&&prior.records&&Array.isArray(prior.records)){data={...data,...prior,assets:{...defaults.assets,...prior.assets}}}}catch(e){}
+const $=id=>document.getElementById(id);
+function fmt(str,dec=2){let v=Number(String(str).replace(/,/g,''));return Number.isFinite(v)?v.toLocaleString('en-AU',{minimumFractionDigits:dec,maximumFractionDigits:8}):'0.00'}
+function text(tag,cls,value){const el=document.createElement(tag);if(cls)el.className=cls;el.textContent=value;return el}
+function row(left,right,cls='entry'){const outer=text('div',cls,'');const inner=text('div','pair','');inner.append(text('span','',left),text('span','',right));outer.append(inner);return outer}
+function render(){ $('totalETH').textContent=fmt(data.eth,4);$('totalAUD').textContent='AUD $'+fmt(data.aud);$('assets').replaceChildren();Object.entries(data.assets).forEach(([k,v])=>$('assets').append(row(k,fmt(v,k==='BTC'||k==='ETH'?6:2))));$('records').replaceChildren();data.records.forEach(r=>{const outer=text('div','record','');const first=text('div','pair','');first.append(text('span','',r.id),text('span','',r.amount));const detail=text('div','pair subtle','');detail.append(text('span','',r.date),text('span','',r.description));outer.append(first,detail);$('records').append(outer)})}
+function field(id,label,value){const div=text('div','field','');const l=text('label','',label);l.htmlFor=id;const input=document.createElement('input');input.id=id;input.name=id;input.type='text';input.value=value;input.autocomplete='off';div.append(l,input);return div}
+function createEditor(){ $('eth').value=data.eth;$('aud').value=data.aud;$('assetFields').replaceChildren();Object.entries(data.assets).forEach(([k,v],i)=>$('assetFields').append(field('asset'+i,k,v)));$('recordFields').replaceChildren();data.records.forEach((r,i)=>{$('recordFields').append(field('desc'+i,r.id+' / DESCRIPTION',r.description));$('recordFields').append(field('amount'+i,r.id+' / AMOUNT',r.amount))})}
+function switchPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('[data-nav]').forEach(n=>n.classList.toggle('active',n.dataset.nav===id));window.scrollTo(0,0)}
+function openEditor(){createEditor();$('saved').textContent='';switchPage('settings')}
+$('editor').addEventListener('submit',event=>{event.preventDefault();const eth=$('eth').value.trim(),aud=$('aud').value.trim();if(!Number.isFinite(Number(eth.replace(/,/g,'')))||!Number.isFinite(Number(aud.replace(/,/g,'')))){$('saved').textContent='Invalid ETH or AUD amount.';return}data.eth=eth;data.aud=aud;Object.keys(data.assets).forEach((k,i)=>data.assets[k]=$('asset'+i).value.trim());data.records.forEach((r,i)=>{r.description=$('desc'+i).value.trim();r.amount=$('amount'+i).value.trim()});try{localStorage.setItem(KEY,JSON.stringify(data));$('saved').textContent='СОХРАНЕНО / 已保存 / SAVED';render()}catch(e){$('saved').textContent='Could not save on this device. Check browser storage settings.'}});
+render();
 </script>
 </body>
 </html>
